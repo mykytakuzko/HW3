@@ -1,6 +1,8 @@
+using Task2;
+
 namespace Task1;
 
-public class MyArray : IOutput
+public class MyArray : IOutput, IMath
 {
     public int[] Numbers { get; set; } = new int[10];
 
@@ -42,5 +44,52 @@ public class MyArray : IOutput
     {
         Console.Write(info);
         Show();
+    }
+
+    public int Max()
+    {
+        int max = Numbers[0];
+        
+        foreach (int number in Numbers)
+        {
+            if (number > max)
+            {
+                max = number;
+            }
+        }
+
+        return max;
+    }
+    
+    public int Min()
+    {
+        int min = Numbers[0];
+        
+        foreach (int number in Numbers)
+        {
+            if (number < min)
+            {
+                min = number;
+            }
+        }
+
+        return min;
+    }
+
+    public float Avg()
+    {
+        float sum = 0;
+
+        foreach (int number in Numbers)
+        {
+            sum += number;
+        }
+
+        return sum / Numbers.Length;
+    }
+
+    public bool Search(int valueToSearch)
+    {
+        return Numbers.Contains(valueToSearch);
     }
 }
