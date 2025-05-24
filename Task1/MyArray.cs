@@ -1,8 +1,9 @@
 using Task2;
+using Task3;
 
 namespace Task1;
 
-public class MyArray : IOutput, IMath
+public class MyArray : IOutput, IMath, ISort
 {
     public int[] Numbers { get; set; } = new int[10];
 
@@ -91,5 +92,53 @@ public class MyArray : IOutput, IMath
     public bool Search(int valueToSearch)
     {
         return Numbers.Contains(valueToSearch);
+    }
+
+    public void SortAsc()
+    {
+        for (int i = 0; i < Numbers.Length - 1; i++)
+        {
+            for (int j = 0; j < Numbers.Length - (i + 1); j++)
+            {
+                if (Numbers[j] > Numbers[j + 1])
+                {
+                    int k = Numbers[j];
+                    Numbers[j] = Numbers[j + 1];
+                    Numbers[j + 1] = k;
+                }
+            }
+        }
+
+        Show();
+    }
+
+    public void SortDesc()
+    {
+        for (int i = 0; i < Numbers.Length - 1; i++)
+        {
+            for (int j = 0; j < Numbers.Length - (i + 1); j++)
+            {
+                if (Numbers[j] < Numbers[j + 1])
+                {
+                    int k = Numbers[j];
+                    Numbers[j] = Numbers[j + 1];
+                    Numbers[j + 1] = k;
+                }
+            }
+        }
+
+        Show();
+    }
+
+    public void SortByParam(bool isAsc)
+    {
+        if (isAsc)
+        {
+            SortAsc();
+        }
+        else
+        {
+            SortDesc();
+        }
     }
 }

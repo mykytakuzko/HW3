@@ -20,5 +20,15 @@ class Program
         bool doesContain = arr.Search(randomNumber);
         
         Console.WriteLine($"Max number: {max}\nMin number: {min}\nAverage number: {avg}\nDoes arr contain {randomNumber}: {doesContain}");
+        
+        //Task3
+        Console.Write("SortDesc: ");
+        arr.SortDesc();
+        Console.Write("SortAsc: ");
+        arr.SortAsc();
+        Console.Write("SortByParam(true): ");
+        arr.SortByParam(true);
+        Console.Write("SortByParam(false): ");
+        arr.SortByParam(false);
     }
 }
